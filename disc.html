@@ -1,0 +1,173 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>disc</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-04-22"><meta name="DC.source" content="disc.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput">subplot(2,3,1)
+t1 = [-4:4];
+x1 = 1*(t1&gt;=0)+0*(t1&lt;0);
+stem(t1,x1)
+xlim([-2,2]);
+ylim([0,2]);
+xlabel(<span class="string">'N'</span>);
+ylabel(<span class="string">'A'</span>);
+title(<span class="string">'Discrete Unit Step Function'</span>)
+
+subplot(2,3,2)
+t2 = [-5:5];
+x2 = t2.*(t2&gt;=0)+0*(t2&lt;0);
+stem3(t2,x2)
+xlim([-2,5]);
+ylim([0,4]);
+xlabel(<span class="string">'N'</span>);
+title(<span class="string">'Discrete Unit Ramp Function'</span>)
+
+subplot(2,3,3)
+t3 = [-6:6];
+f = 200;
+x3 = 3*sin(2*3.13*200*t3);
+stem(t3,x3)
+ylim([-4,4]);
+xlabel(<span class="string">'t'</span>);
+title(<span class="string">'Discrete sinusoidal Function'</span>);
+
+subplot(2,3,4)
+t4 = [-4:4];
+a = 0.5;
+x4 = exp(-a*t4);
+stem(t4,x4)
+xlabel(<span class="string">'t'</span>);
+title(<span class="string">'Discrete Exponential Function'</span>);
+
+subplot(2,3,5)
+t5 = [-2:2];
+x5 = 1*(t5&lt;(1/2)&amp; t5&gt;(-1/2))+0*(t5&gt;(1/2)&amp;t5&lt;(-1/2))+(1/2)*(t5==(1/2));
+stem3(t5,x5)
+xlabel(<span class="string">'t'</span>);
+title(<span class="string">'Discrete Rect Function'</span>);
+
+subplot(2,3,6)
+t6 = -10:10;
+x6 = sinc(t6);
+stem(t6,x6)
+xlabel(<span class="string">'t'</span>);
+title(<span class="string">'Discrete Sinc Function'</span>);
+
+suptitle({<span class="string">'Elemetary Continuous Time Signals '</span>, <span class="string">'Name:- Anshumali Karna Batch:- B9 Roll No:- 20103291'</span>})
+</pre><img vspace="5" hspace="5" src="disc_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+subplot(2,3,1)                                                                                                                                                                                                                                                    
+t1 = [-4:4];
+x1 = 1*(t1>=0)+0*(t1<0);
+stem(t1,x1)
+xlim([-2,2]); 
+ylim([0,2]);
+xlabel('N');
+ylabel('A');
+title('Discrete Unit Step Function')
+
+subplot(2,3,2)
+t2 = [-5:5];
+x2 = t2.*(t2>=0)+0*(t2<0);
+stem3(t2,x2)
+xlim([-2,5]);
+ylim([0,4]);
+xlabel('N');
+title('Discrete Unit Ramp Function')
+
+subplot(2,3,3)
+t3 = [-6:6];
+f = 200;
+x3 = 3*sin(2*3.13*200*t3);
+stem(t3,x3)
+ylim([-4,4]);
+xlabel('t');
+title('Discrete sinusoidal Function');
+
+subplot(2,3,4)
+t4 = [-4:4];
+a = 0.5;
+x4 = exp(-a*t4);
+stem(t4,x4)
+xlabel('t');
+title('Discrete Exponential Function');
+
+subplot(2,3,5)
+t5 = [-2:2];
+x5 = 1*(t5<(1/2)& t5>(-1/2))+0*(t5>(1/2)&t5<(-1/2))+(1/2)*(t5==(1/2));
+stem3(t5,x5)
+xlabel('t');
+title('Discrete Rect Function');
+
+subplot(2,3,6)
+t6 = -10:10;
+x6 = sinc(t6);
+stem(t6,x6)
+xlabel('t');
+title('Discrete Sinc Function');
+
+suptitle({'Elemetary Continuous Time Signals ', 'Name:- Anshumali Karna Batch:- B9 Roll No:- 20103291'})
+##### SOURCE END #####
+--></body></html>
